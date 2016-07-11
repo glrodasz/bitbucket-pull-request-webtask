@@ -5,7 +5,7 @@ const marked = require('marked'); // eslint-disable-line
 
 function getBranchName(source) {
   return source && source.branch && source.branch.name ?
-    source.branch : '(no branch specified)';
+    source.branch.name : '(no branch specified)';
 }
 
 function sendEmail(key, emailTo, emailFrom, subject, message, cb) {
