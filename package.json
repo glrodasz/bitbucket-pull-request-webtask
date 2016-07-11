@@ -1,0 +1,29 @@
+{
+  "name": "bitbucket-pull-request",
+  "version": "1.0.0",
+  "description": "A Webtask that works as a webhook for send an email each time that there is a new pull request on Bitbucket.",
+  "main": "bitbucket-pull-request.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Garethderioth/bitbucket-pull-request-webtask.git"
+  },
+  "keywords": [
+    "webtask",
+    "bitbucket",
+    "pull-request"
+  ],
+  "author": "Guillermo Rodas <garethderioth@gmail.com> (http://guillermorodas.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Garethderioth/bitbucket-pull-request-webtask/issues"
+  },
+  "homepage": "https://github.com/Garethderioth/bitbucket-pull-request-webtask#readme",
+  "devDependencies": {
+    "eslint": "3.0.1",
+    "eslint-config-airbnb-base": "4.0.0",
+    "eslint-plugin-import": "1.10.2"
+  }
+}
