@@ -26,7 +26,7 @@ module.exports = function ({ data }, done) {
   } = data;
 
   // Check if the source branch has a name
-  const getBranchName = source => source && source.branch ?
+  const getBranchName = source => source && source.branch && source.branch.name ?
     source.branch : '(no branch specified)';
 
   const subject = `${title} - Bitbucket pull request`;
