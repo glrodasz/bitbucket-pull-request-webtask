@@ -1,22 +1,43 @@
 "use latest";
 
+const sendgrid = require('sendgrid');
+const marked = require('marked');
+
+function sendEmail(key, emailTo, emailFrom, subject, message) {
+  sendgrid(key).send({
+    to: emailTo,
+    from: emailFrom,
+    subject: subject,
+    html: message,
+  }, (err, json) => {
+    if (err) {
+      return console.error(err);
+    }
+    done(null, json);
+  });
+}
+
 module.exports = function ({ data }, done) {
   const {
     actor: { username, display_name },
-    pullrequest: { title, description, source, destination },
-    repository: { links: { self, html } }
+    pullrequest: {  title, source, destination },
+    repository: { links: { self, html } },
+    SENDGRID_KEY, EMAIL_TO, EMAIL_FROM
   } = data;
 
-  const getBranchName = branch => branch && branch.name ?
-    branch.name : '(no branch specified)';
+  // Check if the source branch has a name
+  const getBranchName = source => source && source.branch ?
+    source.branch : '(no branch specified)';
 
+  const subject = `${title} - Bitbucket pull request`;
+
+  // The message is pushed in an array for redability
   let message = [];
-  message.push(`${display_name} (${username})`);
-  message.push(', has opened the following pull request');
-  message.push(`**${title}** that *${description}*`);
+  message.push(`**${display_name}** *(${username})*:`);
+  message.push('has created the following pull request:');
+  message.push(`**${title}**`);
   message.push(`from ${getBranchName(source)} to ${getBranchName(destination)}`);
 
-  console.log(message.join(' '), self, html);
-
-  done(null, 'Done');
+  // Send email via sendgrid
+  sendEmail(SENDGRID_KEY, EMAIL_TO, EMAIL_FROM, subject, marked(message.join(' ')));
 }
