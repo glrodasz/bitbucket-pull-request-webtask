@@ -31,11 +31,11 @@ function buildMessage(data) {
 
   // The message is pushed in an array for redability
   const message = [];
-  message.push(`**${display_name}** *(${username})*:`); // eslint-disable-line
-  message.push('has created the following pull request:');
-  message.push(`**${title}** from ${name} repository`);
-  message.push(`from ${getBranchName(source)} to ${getBranchName(destination)}`);
-  message.push(`click [here](${links.html.href}) to see it.`);
+  message.push(`**${display_name}** *(${username})*`); // eslint-disable-line
+  message.push('has created the pull request:');
+  message.push(`**${title}** of **${name}** repository`);
+  message.push(`from **${getBranchName(source)}** to **${getBranchName(destination)}**`);
+  message.push(`click [here](${links.html.href}) to review it.`);
 
   return marked(message.join(' '));
 }
