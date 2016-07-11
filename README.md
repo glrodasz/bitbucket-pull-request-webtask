@@ -1,5 +1,5 @@
 # Bitbucket Pull Request Webtask
-A Webtask that works as a webhook for send an email each time that there is a pull request.
+A Webtask that works as a webhook for send an email each time that there is a new pull request on Bitbucket.
 
 ### Requirements
 1. Webtask account
