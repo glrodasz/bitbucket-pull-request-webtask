@@ -25,15 +25,17 @@ function sendEmail(key, emailTo, emailFrom, subject, message, cb) {
 function buildMessage(data) {
   const {
     actor: { username, display_name },
-    pullrequest: { title, source, destination },
+    pullrequest: { links, title, source, destination },
+    repository: { name },
   } = data;
 
   // The message is pushed in an array for redability
   const message = [];
   message.push(`**${display_name}** *(${username})*:`); // eslint-disable-line
   message.push('has created the following pull request:');
-  message.push(`**${title}**`);
+  message.push(`**${title}** from ${name} repository`);
   message.push(`from ${getBranchName(source)} to ${getBranchName(destination)}`);
+  message.push(`click [here](${links.html.href}) to see it.`);
 
   return marked(message.join(' '));
 }
