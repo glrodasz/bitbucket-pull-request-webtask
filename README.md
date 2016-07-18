@@ -24,6 +24,8 @@ Select the repository go into *Settings > Webhooks* create a new one, select any
 ## Roadmap
 * Write tests.
 * Add coverage.
+* Include precommit to run lint, tests and coverage
+* Include ghooks to run the precommit
 * Improve template message; Include a basic styles.
 * Detect if the webhook it is a pull request or not.
 
