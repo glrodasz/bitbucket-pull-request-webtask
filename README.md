@@ -15,18 +15,18 @@ Retrieve a new API Key from *Settings* > *API KEYS*. Make sure that creates a Ge
 * Create a new task using this file and the following command:
 
 ```bash
-wt create --secret SENDGRID_KEY=<REPLACE-WITH-YOUR KEY> --secret EMAIL_TO=<REPLACE-WITH-AN-EMAIL> --secret EMAIL_FROM=<REPLACE-WITH-AN-EMAIL> bitbucket-pull-request.js
+wt create --secret SENDGRID_KEY=<REPLACE_WITH_YOUR_KEY> --secret EMAIL_TO=<REPLACE_WITH_AN_EMAIL> --secret EMAIL_FROM=<REPLACE_WITH_AN_EMAIL> index.js
 ```
 
 ### Bitbucket
 Select the repository go into *Settings > Webhooks* create a new one, select any title paste the *Webtask URL* into the **URL** input and in triggers select **Choose from a full list of triggers** and just select **Pull Request > Created**.
 
 ## Roadmap
-* Write tests.
-* Add coverage.
-* Include precommit to run lint, tests and coverage
-* Include ghooks to run the precommit
-* Improve template message; Include a basic styles.
-* Detect if the webhook it is a pull request or not.
-
-Enjoy! c:
+- [ ] Use ES2015 with babel.
+- [ ] Split the logic in modules.
+- [ ] Write tests.
+- [ ] Add coverage.
+- [ ] Include precommit to run lint, tests and coverage
+- [ ] Include ghooks to run the precommit
+- [ ] Improve template message; Include a HTML template with styles.
+- [ ] Detect if the webhook it is a pull request or not.
