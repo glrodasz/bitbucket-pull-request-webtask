@@ -15,7 +15,9 @@ Retrieve a new API Key from *Settings* > *API KEYS*. Make sure that creates a Ge
 * Create a new task using this file and the following command:
 
 ```bash
-wt create --secret SENDGRID_KEY=<REPLACE_WITH_YOUR_KEY> --secret EMAIL_TO=<REPLACE_WITH_AN_EMAIL> --secret EMAIL_FROM=<REPLACE_WITH_AN_EMAIL> index.js
+wt create --secret SENDGRID_KEY=<REPLACE_WITH_YOUR_KEY> \
+--secret EMAIL_TO=<REPLACE_WITH_AN_EMAIL> \
+--secret EMAIL_FROM=<REPLACE_WITH_AN_EMAIL> index.js
 ```
 
 ### Bitbucket
